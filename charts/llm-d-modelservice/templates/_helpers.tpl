@@ -502,7 +502,9 @@ args:
   - --served-model-name
   - {{ .Values.modelArtifacts.name | quote }}
 {{- with .container.args }}
-  {{ toYaml . | quote | nindent 2 }}
+{{- range . }}
+  - {{ . | quote }}
+{{- end }}
 {{- end }}
 {{- end }} {{- /* define "llm-d-modelservice.vllmServeModelCommand" */}}
 
@@ -530,7 +532,9 @@ args:
   - --served-model-name
   - {{ .Values.modelArtifacts.name | quote }}
 {{- with .container.args }}
-  {{ toYaml . | quote | nindent 2 }}
+{{- range . }}
+  - {{ . | quote }}
+{{- end }}
 {{- end }}
 {{- end }} {{- /* define "llm-d-modelservice.imageDefaultModelCommand" */}}
 
@@ -545,7 +549,9 @@ command:
 {{- end }}
 {{- with .container.args }}
 args:
-  {{- toYaml . | quote | nindent 2 }}
+{{- range . }}
+  - {{ . | quote }}
+{{- end }}
 {{- end }}
 {{- end }}
 {{- end }} {{- /* define "llm-d-modelservice.modelCommandCustom" */}}
