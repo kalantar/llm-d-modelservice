@@ -68,11 +68,6 @@ decode:
       requests:
         cpu: "2"
         memory: "8Gi"
-      claims:
-      - name: llm-d-imex-channel-0
-  resourceClaims:
-  - name: llm-d-imex-channel-0
-    resourceClaimTemplateName: llm-d-imex-channel-0
 
 prefill:
   create: false
